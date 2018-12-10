@@ -1,8 +1,8 @@
 /*
     Problem: https://www.hackerrank.com/challenges/migratory-birds/problem
-    Time Complexity:  O(n) There are two for loops but second for loop runs a constant (=5) number of times. 
+    Time Complexity:  O(n) There are two for loops but second for loop runs a constant (=10) number of times. 
                         Hence second loop can be ignored.
-    Space Complexity: O(1) //We are allocating an additional array which is of constant length (=5). So it will not vary with the
+    Space Complexity: O(1) //We are allocating an additional array which is of constant length (=10). So it will not vary with the
                             number of migratory birds. Other dynamically allocated variables remain constant for any input.              
 */
 
