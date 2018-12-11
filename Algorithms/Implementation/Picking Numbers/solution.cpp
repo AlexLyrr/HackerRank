@@ -1,3 +1,9 @@
+/*
+    Problem: https://www.hackerrank.com/challenges/picking-numbers/problem
+    Time Complexity:  O(n)
+    Space Complexity: O(1) // no dynamic memory allocation
+*/ 
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -14,15 +20,29 @@ vector<string> split(const string &);
  */
 
 int pickingNumbers(vector<int> a) {
+    
     std::sort(a.begin(), a.end());
-    int prevElem = 0;
+    int prevElem = 0, prevCount = 0;
+    int curCount = 0, maxCount = 0;
     for (std::vector<int>::iterator it = a.begin(); it != a.end(); it++){
         if (prevElem != *it){
-            
-        }
-
-        prevElem = *it;
+            curCount = std::count(a.begin(), a.end(), *it);
+            if (*it - prevElem == 1){
+                if (curCount + prevCount > maxCount) {
+                    maxCount = curCount + prevCount;
+                }
+            }
+            else{
+                if (curCount > maxCount) {
+                    maxCount = curCount;
+                }
+            }
+            prevElem = *it;
+            prevCount = curCount;
+        }           
     }
+
+    return maxCount;
 }
 
 int main()
@@ -49,6 +69,7 @@ int main()
 
     int result = pickingNumbers(a);
 
+    cout << result << "\n";
     fout << result << "\n";
 
     fout.close();
