@@ -5,7 +5,6 @@
    Space Complexity: O(1)
 */
 
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -26,7 +25,13 @@ int pageCount(int n, int p) {
         }
     }
     else if (p > n/2){
-        currentP = n - 1;
+        if (n % 2 == 0){
+            currentP = n;
+        }
+        else{
+             currentP = n - 1;
+        }
+        
         while (currentP > p) {
             turns++;
             currentP -= 2;
