@@ -1,5 +1,4 @@
 // Problem: https://www.hackerrank.com/challenges/organizing-containers-of-balls/problem
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -7,23 +6,28 @@ using namespace std;
 // Complete the organizingContainers function below.
 string organizingContainers(vector<vector<int>> containers) {
 
-    int numContainers = containers.size(), numTypes = containers.size();
+
+    long numContainers = containers.size(), numTypes = containers.size();
     bool possible = true;
+    cout << "There are " << numContainers << " containers and " << numTypes << " types. \n";
+    vector<long long> containersCapacity (numContainers, 0);
+    vector<long long> typesTotalBalls (numTypes, 0);
+    
     for (int i = 0; i < numContainers; i++){
-        int totalBalls = std::accumulate(containers[i].begin(), containers[i].end(), 0);
-        int numberOfSwaps = totalBalls - containers[i][i];
-        int ballsMiss = 0;
-        for (int j = 0; j < numTypes; j++) {
-                if (i != j){
-                    ballsMiss += containers[j][i];
-                }
+        for (int j = 0; j < numContainers; j++) {
+          containersCapacity[i] += containers[i][j];
+          typesTotalBalls[i] += containers[j][i];
         }
-        if (ballsMiss != numberOfSwaps){
+    }
+    std::sort(containersCapacity.begin(), containersCapacity.end());
+    std::sort(typesTotalBalls.begin(), typesTotalBalls.end());
+    for (int i = 0; i < numContainers; i++){
+        if (containersCapacity[i] != typesTotalBalls[i]){
             possible = false;
             break;
         }
     }
-
+    
     if (possible){
         return "Possible";
     }
@@ -59,7 +63,10 @@ int main()
 
         string result = organizingContainers(container);
 
+        cout << result << "\n";
+
         fout << result << "\n";
+
     }
 
     fout.close();
