@@ -1,4 +1,4 @@
-*
+*/
  Problem: https://www.hackerrank.com/challenges/designer-pdf-viewer/problem
  Time Complexity:  O(n)
  Space Complexity: O(1) //Only seven dynamically allocated variables which will remain constant irrespective of input.
