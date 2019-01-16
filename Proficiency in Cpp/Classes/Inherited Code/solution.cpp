@@ -1,5 +1,5 @@
 /*
-  Problem:
+  Problem: https://www.hackerrank.com/challenges/inherited-code/problem
   
   Theory:
     An exception consists of a "throw" and a "catch". A "throw" is followed by an object or variable. 
