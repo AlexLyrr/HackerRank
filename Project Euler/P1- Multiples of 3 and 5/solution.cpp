@@ -31,7 +31,6 @@
 using namespace std;
 
 long long multiplesOfThreeAndFive(int n) {
-    long long sum = 0;
     long long multiplesOfThree = std::ceil(n / 3.0) - 1;
     long long multiplesOfFive = std::ceil(n / 5.0) - 1;
     long long multiplesOfFifteen = std::ceil(n / 15.0) - 1;
@@ -39,8 +38,6 @@ long long multiplesOfThreeAndFive(int n) {
     return (3 * multiplesOfThree * (multiplesOfThree + 1)/2)
             + (5 * multiplesOfFive * (multiplesOfFive + 1)/2)
             - (15 * multiplesOfFifteen * (multiplesOfFifteen + 1)/2);
-    
-    return sum;    
 }
 
 int main(){
