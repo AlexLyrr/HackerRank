@@ -75,7 +75,6 @@ int main()
 
     fout.close();
     return 0;
-    return 0;
 }
 
 vector<string> split_string(string input_string) {
